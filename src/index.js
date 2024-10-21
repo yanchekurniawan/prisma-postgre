@@ -18,6 +18,10 @@ app.use(
 );
 app.use(express.json());
 
+app.get("/", (req, res) => {
+  res.json("Hello");
+});
+
 app.post("/products", async (req, res) => {
   const { name, price, description } = req.body;
   await prisma.product.create({
