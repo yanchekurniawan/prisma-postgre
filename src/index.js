@@ -10,7 +10,12 @@ const prisma = new PrismaClient();
 
 const PORT = process.env.PORT;
 
-app.use(cors());
+app.use(
+  cors({
+    credentials: true,
+    origin: true,
+  })
+);
 app.use(express.json());
 
 app.post("/products", async (req, res) => {
